@@ -27,3 +27,4 @@
 
 # Needed for API Approvals
 *.txt text eol=crlf
+*.xml text eol=crlf
