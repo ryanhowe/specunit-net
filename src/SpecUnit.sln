@@ -1,6 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D163404D-8220-4DCA-B3EF-DF403951BF14}"
+	ProjectSection(SolutionItems) = preProject
+		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
+		specunit-net.build = specunit-net.build
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecUnit", "SpecUnit\SpecUnit.csproj", "{2117F3B4-5691-4E87-9F0A-00D10F531755}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecUnit.Report", "SpecUnit.Report\SpecUnit.Report.csproj", "{CF5E3274-CDF3-4491-95C8-A298E5E5D245}"
@@ -8,12 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecUnit.Specs", "SpecUnit.Specs\SpecUnit.Specs.csproj", "{892B965D-1CBD-4CC7-94F1-BC605AAA0D41}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecUnit.Specs.AssemblyUnderTest", "SpecUnit.Specs.AssemblyUnderTest\SpecUnit.Specs.AssemblyUnderTest.csproj", "{1466E65A-1C30-4BBD-96CB-D36D1BAAAAC6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D163404D-8220-4DCA-B3EF-DF403951BF14}"
-	ProjectSection(SolutionItems) = preProject
-		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
-		specunit-net.build = specunit-net.build
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyWithoutPeriodInName", "AssemblyWithoutPeriodInName\AssemblyWithoutPeriodInName.csproj", "{A14482B6-54C4-450C-A57B-1AE95DBC2FBC}"
 EndProject

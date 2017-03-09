@@ -78,7 +78,7 @@ namespace SpecUnit.Specs
 
         protected override void Because_After()
         {
-            _assemblyFilePath = Assembly.GetExecutingAssembly().GetName().Name + ".dll";
+            _assemblyFilePath = Assembly.GetExecutingAssembly().Location;
             string[] consoleArgs = new string[] { _assemblyFilePath };
 
             _mockery.ReplayAll();
