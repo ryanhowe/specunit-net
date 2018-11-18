@@ -4,13 +4,13 @@ namespace SpecUnit
 {
 	public abstract class ContextSpecification
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void TestFixtureSetUp()
 		{
 			Context_BeforeAllSpecs();
 		}
 
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void TestFixtureTearDown()
 		{
 			CleanUpContext_AfterAllSpecs();

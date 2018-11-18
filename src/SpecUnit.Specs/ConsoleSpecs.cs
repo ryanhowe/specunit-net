@@ -2,8 +2,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using NUnit.Framework;
-using Rhino.Mocks;
+using Moq;
 using SpecUnit.Report;
 using Console = SpecUnit.Report.Console;
 
@@ -44,7 +43,7 @@ namespace SpecUnit.Specs
 
             _assemblyFilePath = Guid.NewGuid().ToString();
 
-            string[] consoleArgs = new string[] { _assemblyFilePath };
+            string[] consoleArgs = new string[] {_assemblyFilePath};
 
             Console.Main(consoleArgs);
         }
@@ -65,35 +64,32 @@ namespace SpecUnit.Specs
     public class when_given_a_valid_assembly_file_path : ContextSpecification
     {
         private string _assemblyFilePath;
-        private MockRepository _mockery;
-        private ReportGenerator _reportGenerator;
+        private Mock<IReportGenerator> _reportGenerator;
 
         protected override void Context()
         {
-            _mockery = new MockRepository();
-
-            _reportGenerator = _mockery.DynamicMock<ReportGenerator>();
-            Console.ReportGenerator = _reportGenerator;
+            _reportGenerator = new Mock<IReportGenerator>();
+            Console.ReportGenerator = _reportGenerator.Object;
         }
 
         protected override void Because_After()
         {
             _assemblyFilePath = Assembly.GetExecutingAssembly().Location;
-            string[] consoleArgs = new string[] { _assemblyFilePath };
+            string[] consoleArgs = new string[] {_assemblyFilePath};
 
-            _mockery.ReplayAll();
+            _reportGenerator.VerifyAll();
 
             // because
             Console.Main(consoleArgs);
 
-            _mockery.VerifyAll();
+            _reportGenerator.VerifyAll();
         }
 
         [Observation]
         public void should_write_the_spec_report_for_the_assembly_indicated_by_the_file_path()
         {
-            _reportGenerator.WriteReport(Assembly.GetExecutingAssembly());
-            LastCall.IgnoreArguments();
+            _reportGenerator.Setup(r => r.WriteReport(It.IsAny<Assembly>()));
+            _reportGenerator.Object.WriteReport(Assembly.GetExecutingAssembly());
         }
     }
 

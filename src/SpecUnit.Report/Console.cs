@@ -6,11 +6,11 @@ namespace SpecUnit.Report
 {
 	public class Console
 	{
-		private static ReportGenerator _reportGenerator = new ReportGenerator();
+		private static IReportGenerator _reportGenerator = new ReportGenerator();
 
-		public static ReportGenerator ReportGenerator
+		public static IReportGenerator ReportGenerator
 		{
-			set { _reportGenerator = value; }
+			set => _reportGenerator = value;
 		}
 
 		public static void Main(string[] args)

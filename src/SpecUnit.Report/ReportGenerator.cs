@@ -6,7 +6,12 @@ using System.Linq;
 
 namespace SpecUnit.Report
 {
-	public class ReportGenerator
+	public interface IReportGenerator
+	{
+		void WriteReport(Assembly assemblyUnderTest);
+	}
+
+	public class ReportGenerator : IReportGenerator
 	{
 		public virtual void WriteReport(Assembly assemblyUnderTest)
 		{
